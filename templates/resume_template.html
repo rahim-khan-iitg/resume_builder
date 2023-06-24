@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Preview</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://as1.ftcdn.net/v2/jpg/03/91/55/88/1000_F_391558896_pokwOaJQRxWFkPrEemUjrn42cqw7EfYu.jpg">
+    <link rel="stylesheet" type="text/css" href="https://rahimcdn.blob.core.windows.net/mycdn/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/scroll.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://rahimcdn.blob.core.windows.net/mycdn/column_scroll.css">
+    <link rel="stylesheet" type="text/css" href="https://rahimcdn.blob.core.windows.net/mycdn/thin_scroll.css">
+    <link rel="stylesheet" type="text/css" href="https://rahimcdn.blob.core.windows.net/mycdn/theme.css">
+    <link rel="stylesheet" type="text/css" href="https://rahimcdn.blob.core.windows.net/mycdn/main.css">
+    <link href="https://rahimcdn.blob.core.windows.net/mycdn/css" rel="stylesheet" type="text/css">
+    <link href="https://rahimcdn.blob.core.windows.net/mycdn/css(1)" rel="stylesheet" type="text/css">
+    <meta name="description" content="Online document editor like interface to create and save Resume">
+    <meta name="keywords" content="resume,cv,maker,creator,generator,iit,guwahati,iitg">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+</head>
+
+<body onload="generate()">
+    
+    <div class="container d-block justify-content-center">
+        <div class="col-sm-9 text-center">
+            <div id="page" class="droid" contenteditable="true" style="padding: 0.2cm 1.5cm 1cm; line-height: 1.1em;">
+
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col-sm-12">
+                        <div style="display: inline-block; margin-top: 25px;" id="image_box">
+                            <img src="https://rahimcdn.blob.core.windows.net/mycdn/iitg_logo.png" height="80" width="80">
+                        </div>
+                        <div id="info" style="display:inline-block;">
+                            <h2 id="contentName"></h2>
+                            <h5 id="contentRoll"></h5>
+                            <h5 id="contentCourse"></h5>
+                            <h5 id="contentBranch"></h5>
+                            <h5 id="contentMinor" style="display: none;"></h5>
+                            <h5 id="contentCollege">Indian Institute of Technology Guwahati</h5>
+                        </div>
+                        <div id="contact" style="display:inline-block;">
+                            <span id="mob"></span><br>
+                            <span id="email"></span><br>
+                            <span id="iitgemail"></span><br>
+                            <span class="light" id="contactLink1" style="display: inline;"></span><br>
+                            <span class="light" id="contactLink2" style="display: inline;"><br></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section" id="sectionEducation">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Education</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul class="nobullet">
+                        <li>
+                            <table class="table customBordered" id="educationTable">
+                                <tbody>
+                                    <tr>
+                                        <td class="header text-center"><strong>Year</strong></td>
+                                        <td class="header text-center"><strong>Degree / Certificate</strong></td>
+                                        <td class="header text-center"><strong>Institute / Board</strong></td>
+                                        <td class="header text-center"><strong>CGPA/Percentage</strong></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section" id="sectionExperience">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Experience</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="experience">
+                        <!-- <li>
+                            <div>
+                                <div class="title">XYZ Engineer at 'ABC'</div>
+                                <div class="time right">May 2016 - July 2016</div>
+                            </div>
+                            <div>
+                                <div class="link right">www.abc.in</div>
+                                <div class="text">Analysed app usage statistics to recommend items based on user's preference.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">XYZ Engineer at 'ABC'</div>
+                                <div class="time right">Dec 2015</div>
+                            </div>
+                            <div>
+                                <div class="link right">www.abc.in</div>
+                                <div class="text">Designed methods to improve the existing unit test mechanism.</div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionPublications">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Publications</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="publications">
+                        <!-- <li>
+                            <div>
+                                <div class="title">Advanced analysis of damping motion</div>
+                                <div class="time right">PCES 2010</div>
+                            </div>
+                            <div>
+                                <div class="mentor">Mentors</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Efficient ranking of search results</div>
+                                <div class="time right">LOCS 2010</div>
+                            </div>
+                            <div>
+                                <div class="mentor">Mentors</div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionProjects">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Projects</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="projects">
+                        <!-- <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Ongoing</div>
+                            </div>
+                            <div>
+                                <div class="mentor tab">Project Mentor</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Apr 2016</div>
+                            </div>
+                            <div>
+                                <div class="mentor tab">Dr. XYZ, Associate Professor, Dept. of XXX, IIT Guwahati</div>
+                                <div class="link right">goo.gl/link</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Jan 2016 - Mar 2016</div>
+                            </div>
+                            <div>
+                                <div class="mentor tab">Mentor name</div>
+                                <div class="link right">www.xyz.in</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Feb 2016</div>
+                            </div>
+                            <div>
+                                <div class="link right">goo.gl/link</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Nov 2015</div>
+                            </div>
+                            <div>
+                                <div class="mentor tab">Mentor name</div>
+                                <div class="link right">github.com/link</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="title">Project title</div>
+                                <div class="time right">Aug 2015 - Sep 2015</div>
+                            </div>
+                            <div>
+                                <div class="text">Graphical interface to share files over institute's network.</div>
+                            </div>
+                        </li>
+                    </ul> -->
+                </div>
+                <div class="section" id="sectionSkills">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Technical skills</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="skills">
+                        <!-- <li>
+                            <strong><span class="skillCategory">Programming languages</span> :</strong>
+                            C++, Python, Java *
+                        </li>
+                        <li>
+                            <strong><span class="skillCategory">Web technologies</span> :</strong>
+                            HTML, CSS, Javascript
+                        </li>
+                        <li>
+                            <strong><span class="skillCategory">Database management</span> :</strong>
+                            mySQL
+                        </li>
+                        <li>
+                            <strong><span class="skillCategory">Miscellaneous</span> :</strong>
+                            Android programming *
+                        </li>
+                        <li>
+                            <strong><span class="skillCategory">Operating system</span> :</strong>
+                            Windows, Linux
+                        </li> -->
+                        <!-- <div class="star"><i>*<span class="light"> Elementary proficiency</span></i></div> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionResponsibility">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Positions of Responsibility</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="position">
+                        <!-- <li>XYZ Head, ABC 2016 (the annual XYZ of IIT Guwahati)</li>
+                        <li>City representative, New Delhi, ABC 2015</li> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionAchievements">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Achievements</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="achievements">
+                        <!-- <li>
+                            <span class="title">ABC contest 2016 : </span>
+                            <span class="text">Secured 1st position in the National level contest.</span>
+                        </li>
+                        <li>
+                            <span class="title">Joint Entrance Examination 2014 : </span>
+                            <span class="text">Secured All India Rank 1 among 0.15 million candidates appearing for the test.</span>
+                        </li>
+                        <li>
+                            <span class="title">KVPY 2013-14 : </span>
+                            <span class="text">Obtained the National research fellowship scholarship by securing a position in top 1%.</span>
+                        </li>
+                        <li>
+                            <span class="title">ABC Olympiad 2014 : </span>
+                            <span class="text">Qualified for the international stage by securing top position in following stages :</span>
+                            <ul class="decimal">
+                                <li>Qualifiers stage : Bagged 20th position among 5000 candidates.</li>
+                                <li>National level : Bagged 7th position among 250 candidates.</li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionCourses">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Key courses taken</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul>
+                        <div class="row" id="row">
+                            <!-- <div class="col-sm-6">
+                                <li>Computer lab</li>
+                                <li>Process design</li>
+                                <li>Statistics *</li>
+                            </div>
+                            <div class="col-sm-6">
+                                <li>Advanced calculus</li>
+                                <li>XYZ architecture *</li>
+                                <li>ABC lab *</li>
+                            </div> -->
+                        </div>
+                        <!-- <div class="star"><i>*<span class="light"> To be completed in Nov 2016</span></i></div> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionCurricular">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Extracurriculars</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul id="curricular">
+                        <!-- <li>
+                            <span class="title">ABC workshop : </span>
+                            <span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
+                        </li>
+                        <li>
+                            <span class="title">ABC contest 2016 : </span>
+                            <span class="text">Secured 1st position in the National level contest.</span>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="section" id="sectionInterest">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h4><strong>Fields of interest (OR Research interests)</strong></h4>
+                        <hr class="hr-below">
+                    </div>
+                    <ul>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <li>Advanced XYZ</li>
+                                <li>ABC design</li>
+                            </div>
+                            <div class="col-sm-6">
+                                <li>XYZ processing</li>
+                                <li>Robotics</li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="section" id="sectionFooterMessage">
+                    <div class="section-title ruled rule-above">
+                        <hr class="hr-above">
+                        <h6><strong>(References available on request)</strong></h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <a id="aTag" class="btn btn-primary hidden-print">print</a>
+    </div>
+    
+    <script type="text/javascript" src="https://rahimcdn.blob.core.windows.net/mycdn/template.js"></script>
+    <script type="text/javascript" src="https://rahimcdn.blob.core.windows.net/mycdn/jquery.min.js.download"></script>
+    <script type="text/javascript" src="https://rahimcdn.blob.core.windows.net/mycdn/bootstrap.min.js.download"></script>
+    <script type="text/javascript" src="https://rahimcdn.blob.core.windows.net/mycdn/main.js.download"></script>
+    </body>
+
+</html>
